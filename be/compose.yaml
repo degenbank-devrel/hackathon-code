@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    restart: always
+    networks:
+      - app_network
+    depends_on:
+      - redis-dev
+
+  redis-dev:
+    image: redis:latest
+    ports:
+      - 6379
+
+networks:
+  app_network:

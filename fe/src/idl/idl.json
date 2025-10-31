@@ -1,0 +1,637 @@
+{
+  "address": "GoXfRMXGPgf91TSUViswPtnfEbTj4c9D6uqJe3VcPx6q",
+  "metadata": {
+    "name": "degen_bank",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "close_vault",
+      "discriminator": [141, 103, 17, 126, 72, 75, 29, 29],
+      "accounts": [
+        {
+          "name": "battle",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "vault_winner",
+          "writable": true
+        },
+        {
+          "name": "winner_token_account"
+        },
+        {
+          "name": "winner_manager_token_account"
+        },
+        {
+          "name": "manager_token_account"
+        },
+        {
+          "name": "treasury_token_account"
+        },
+        {
+          "name": "vault_token_account"
+        },
+        {
+          "name": "vtoken_authority"
+        },
+        {
+          "name": "authority",
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_vault",
+      "discriminator": [29, 237, 247, 208, 193, 82, 54, 135],
+      "accounts": [
+        {
+          "name": "manager"
+        },
+        {
+          "name": "manager_token_account"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [118, 97, 117, 108, 116]
+              },
+              {
+                "kind": "account",
+                "path": "manager"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vault_token_account"
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "target",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "deposit",
+      "discriminator": [242, 35, 198, 137, 82, 225, 242, 182],
+      "accounts": [
+        {
+          "name": "battle",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "depositor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "depositor_token_account",
+          "writable": true
+        },
+        {
+          "name": "depositor_vtoken_account",
+          "writable": true
+        },
+        {
+          "name": "vtoken_account",
+          "writable": true
+        },
+        {
+          "name": "vault_token_account",
+          "writable": true
+        },
+        {
+          "name": "vtoken_authority",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "disqualified",
+      "discriminator": [56, 168, 89, 107, 88, 206, 62, 95],
+      "accounts": [
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "battle",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize",
+      "discriminator": [175, 175, 109, 31, 13, 152, 155, 237],
+      "accounts": [
+        {
+          "name": "referee"
+        },
+        {
+          "name": "treasury_token_account"
+        },
+        {
+          "name": "battle",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [98, 97, 116, 116, 108, 101]
+              },
+              {
+                "kind": "account",
+                "path": "referee"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "start_at",
+          "type": "i64"
+        },
+        {
+          "name": "end_at",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "raydium_swap",
+      "discriminator": [177, 173, 42, 240, 184, 4, 124, 81],
+      "accounts": [
+        {
+          "name": "battle",
+          "writable": true
+        },
+        {
+          "name": "amm_program"
+        },
+        {
+          "name": "amm",
+          "writable": true
+        },
+        {
+          "name": "amm_authority"
+        },
+        {
+          "name": "amm_open_orders",
+          "writable": true
+        },
+        {
+          "name": "amm_coin_vault",
+          "writable": true
+        },
+        {
+          "name": "amm_pc_vault",
+          "writable": true
+        },
+        {
+          "name": "market_program"
+        },
+        {
+          "name": "market",
+          "writable": true
+        },
+        {
+          "name": "market_bids",
+          "writable": true
+        },
+        {
+          "name": "market_asks",
+          "writable": true
+        },
+        {
+          "name": "market_event_queue",
+          "writable": true
+        },
+        {
+          "name": "market_coin_vault",
+          "writable": true
+        },
+        {
+          "name": "market_pc_vault",
+          "writable": true
+        },
+        {
+          "name": "market_vault_signer",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "vtoken_authority"
+        },
+        {
+          "name": "vault_token_source",
+          "writable": true
+        },
+        {
+          "name": "vault_token_destination",
+          "writable": true
+        },
+        {
+          "name": "manager",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount_in",
+          "type": "u64"
+        },
+        {
+          "name": "min_amount_out",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "register_vault",
+      "discriminator": [121, 62, 4, 122, 93, 231, 119, 49],
+      "accounts": [
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "battle",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "set_battle_period",
+      "discriminator": [43, 88, 124, 53, 254, 130, 96, 80],
+      "accounts": [
+        {
+          "name": "battle",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "start_at",
+          "type": "i64"
+        },
+        {
+          "name": "end_at",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "set_winner",
+      "discriminator": [207, 149, 39, 13, 31, 233, 182, 109],
+      "accounts": [
+        {
+          "name": "winner_vault",
+          "writable": true
+        },
+        {
+          "name": "winner_vault_token_account"
+        },
+        {
+          "name": "battle",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "withdraw",
+      "discriminator": [183, 18, 70, 156, 148, 109, 161, 34],
+      "accounts": [
+        {
+          "name": "battle",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "vtoken_authority",
+          "writable": true
+        },
+        {
+          "name": "depositor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "depositor_token_account",
+          "writable": true
+        },
+        {
+          "name": "depositor_vtoken_account",
+          "writable": true
+        },
+        {
+          "name": "vtoken_account",
+          "writable": true
+        },
+        {
+          "name": "vault_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Battle",
+      "discriminator": [81, 148, 121, 71, 63, 166, 116, 24]
+    },
+    {
+      "name": "Vault",
+      "discriminator": [211, 8, 232, 43, 2, 152, 117, 119]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InsufficientFunds",
+      "msg": "Insufficient funds in vault"
+    },
+    {
+      "code": 6001,
+      "name": "FullRegistered",
+      "msg": "Registration is full"
+    },
+    {
+      "code": 6002,
+      "name": "AlreadyRegistered",
+      "msg": "Vault Already Registered"
+    },
+    {
+      "code": 6003,
+      "name": "WinnerDecided",
+      "msg": "Winner decided"
+    },
+    {
+      "code": 6004,
+      "name": "OnLockPeriod",
+      "msg": "On lock period"
+    },
+    {
+      "code": 6005,
+      "name": "OutsideLockPeriod",
+      "msg": "Outside lock period"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidLockPeriod",
+      "msg": "Invalid lock period: end must be greater than start"
+    },
+    {
+      "code": 6007,
+      "name": "VaultAndSignerMismatch",
+      "msg": "Vault and vault_as_signer must be the same address"
+    },
+    {
+      "code": 6008,
+      "name": "VaultFull",
+      "msg": "Vault already full"
+    },
+    {
+      "code": 6009,
+      "name": "TooManyAmount",
+      "msg": "Amount is too large try more small amount"
+    },
+    {
+      "code": 6010,
+      "name": "UnAuthorized",
+      "msg": "UnAuthorized"
+    },
+    {
+      "code": 6011,
+      "name": "AlreadyDisqualified",
+      "msg": "Already Disqulified"
+    },
+    {
+      "code": 6012,
+      "name": "FullDisqualified",
+      "msg": "FullDisqualified"
+    },
+    {
+      "code": 6013,
+      "name": "BattleOnGoing",
+      "msg": "Battle is On Going"
+    },
+    {
+      "code": 6014,
+      "name": "BattleNotEnded",
+      "msg": "Battle Not ENd"
+    }
+  ],
+  "types": [
+    {
+      "name": "Battle",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "referee",
+            "type": "pubkey"
+          },
+          {
+            "name": "winner",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "winner_token_account",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "treasury_token_account",
+            "type": "pubkey"
+          },
+          {
+            "name": "participants",
+            "type": {
+              "array": ["pubkey", 10]
+            }
+          },
+          {
+            "name": "disqualified",
+            "type": {
+              "array": ["pubkey", 10]
+            }
+          },
+          {
+            "name": "start_at",
+            "type": "i64"
+          },
+          {
+            "name": "end_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Vault",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "manager",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_program",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault_token_account",
+            "type": "pubkey"
+          },
+          {
+            "name": "manager_token_account",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_deposits",
+            "type": "u64"
+          },
+          {
+            "name": "target_deposits",
+            "type": "u64"
+          },
+          {
+            "name": "used_deposits",
+            "type": "u64"
+          },
+          {
+            "name": "is_open_position",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}
